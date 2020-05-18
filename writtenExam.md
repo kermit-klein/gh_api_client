@@ -37,7 +37,7 @@ let personIDs = people.map(function (person) {
 **.filter**
 
 We would like to use filter when we want to select a subset of multiple elements from an array, it does not change current array
-When we want to limit size of an array according to our restrictions, maybe we are not interested in very high number results and we want to trim it down
+When we want to limit size of an array according to our restrictions, maybe we are not interested in very high or low number results and we want to trim it down
 
 ```
 let numbers = [1,2,3,4,5,6]
