@@ -16,10 +16,20 @@ export class App extends Component {
       const response = await axios.get("https://api.github.com/search/users", {
         params: { q: e.target.children.search.value },
       });
+      if (response.data.total_count === 0) {
+        this.setState({ message: "No Result Found" });
+      }
       this.setState({ searchResult: response.data.items });
     } catch (error) {
-      let errorMessage = error.response.data.error_message || error.message;
-      this.setState({ message: errorMessage });
+      debugger;
+      let errorMessage;
+      if (error.response.data.total_count === 0) {
+        errorMessage = "No Result Found";
+        this.setState({ message: errorMessage });
+      } else {
+        errorMessage = error.response.data.message;
+        this.setState({ message: errorMessage });
+      }
     }
   };
 
@@ -34,6 +44,7 @@ export class App extends Component {
             searchReq={this.searchReq}
             searchResult={this.state.searchResult}
           />
+          <p id="message">{this.state.message}</p>
         </section>
       </Container>
     );
