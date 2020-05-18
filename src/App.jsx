@@ -12,6 +12,7 @@ export class App extends Component {
 
   searchReq = async (e) => {
     e.preventDefault();
+    this.setState({ message: "" });
     try {
       const response = await axios.get("https://api.github.com/search/users", {
         params: { q: e.target.children.search.value },
