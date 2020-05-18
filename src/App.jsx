@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./components/Title";
 import GHSearch from "./components/GHSearch";
 import { Container } from "semantic-ui-react";
+import axios from "axios";
 
 export class App extends Component {
   state = {
